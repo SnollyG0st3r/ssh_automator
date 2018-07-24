@@ -56,6 +56,6 @@ def execute_commands
     ssh.close
   end
 end
-# commands
+
 arguments
 execute_commands
