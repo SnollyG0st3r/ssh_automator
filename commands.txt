@@ -1,8 +1,9 @@
-Current user:whoami
+Enumerating current user:whoami
 Trying to get access to the passwd file:cat /etc/passwd
 Trying to get access to the shadow file:cat /etc/shadow
 Getting SUID bit files:find / -type f -perm -04000 -ls
 Getting SGID bit files:find / -type f -perm -02000 -ls
 Find world readable files in /home:find /home/ -perm -4 -type f -exec ls -al {} \;
-Find password strings in files within /var/www:grep -R 'password' /var/www/
+Find password strings in files within /var/www:grep -i -R 'password' /var/www/
 Output all bash history files:grep -R . /home/*/.bash_history
+Show all established TCP and UDP sessions:netstat -tuan | grep -i established
