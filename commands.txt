@@ -19,3 +19,4 @@ Checking our user's sudo rights: sudo -l
 Checking bash version:bash --version
 Checking fstab for passwords:cat /etc/fstab
 Finding hidden files and folders:find / -name ".*" -ls
+Check permissions on backup files:ls -laht /var/backups
