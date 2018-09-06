@@ -18,3 +18,4 @@ Finding passwords and private keys:find / -type f -size +0 -regex ".*\(shadow\|p
 Checking our user's sudo rights: sudo -l
 Checking bash version:bash --version
 Checking fstab for passwords:cat /etc/fstab
+Finding hidden files and folders:find / -name ".*" -ls
