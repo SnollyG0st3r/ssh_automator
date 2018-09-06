@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# encoding: utf-8
 #SSH AUTOMATOR RUNS COMMANDS FOR YOU!!@1212121212
 #Written by Rich A for maximum lazyness
 
@@ -48,7 +49,7 @@ def execute_commands
       puts "#{desc} with command: #{cmd}".green.bold
       out = ssh.exec!(cmd)
       out.each_line do |line|
-        unless line =~ /find:/
+        unless line.scrub =~ /find:/
           puts line
         end
       end
