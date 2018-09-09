@@ -46,7 +46,7 @@ def execute_commands
     commands.each do |command|
       desc = command.split(":")[0]
       cmd  = command.split(":")[1]
-      puts "#{desc} with command: #{cmd}".green.bold
+      puts "\n\n#{desc} with command: #{cmd}".green.bold
       out = ssh.exec!(cmd)
       out.each_line do |line|
         unless line.scrub =~ /find:/
