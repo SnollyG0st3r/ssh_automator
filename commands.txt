@@ -4,10 +4,10 @@ Getting my shell:echo $SHELL
 Getting my environment variables:env
 Trying to get access to the passwd file:cat /etc/passwd
 Trying to get access to the shadow file:cat /etc/shadow
-Getting SUID bit files:find / -type f -perm -04000 -ls
-Getting SGID bit files:find / -perm -02000 -ls
-Find world readable files in /home:find /home/ -perm -4 -type f -exec ls -al {} \;
-Find world writable files:find / -perm -2 -type f -print | grep -v proc
+Getting SUID bit files:find / -type f -perm -04000 -ls 2>/dev/null
+Getting SGID bit files:find / -perm -02000 -ls 2>/dev/null
+Find world readable files in /home:find /home/ -perm -4 -type f -exec ls -al {} \; 2>/dev/null
+Find world writable files:find / -perm -2 -type f -print | grep -v proc 2>/dev/null
 Find password strings in files within /var/www:grep -i -R 'password' /var/www/
 Output all bash history files:grep -R . /home/*/.bash_history
 Show all established TCP and UDP sessions:netstat -tuan | grep -i established
@@ -18,5 +18,5 @@ Finding passwords and private keys:find / -type f -size +0 -regex ".*\(shadow\|p
 Checking our user's sudo rights: sudo -l
 Checking bash version:bash --version
 Checking fstab for passwords:cat /etc/fstab
-Finding hidden files and folders:find / -name ".*" -ls
+Finding hidden files and folders:find / -name ".*" -ls 2>/dev/null
 Check permissions on backup files:ls -laht /var/backups
