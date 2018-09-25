@@ -9,10 +9,6 @@ require 'net/ssh'
 require 'colorize'
 require 'trollop'
 
-@hostname = "10.10.10.10"
-@username = "techsupport"
-@password = "w0ntcr@ckme12"
-
 def arguments
   @opts = Trollop::options do
     version "ssh_automater v0.9".light_blue
