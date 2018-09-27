@@ -6,6 +6,7 @@ Checking mounts:df -h
 Checking our user's sudo rights: sudo -l
 Trying to get access to the passwd file:cat /etc/passwd
 Trying to get access to the shadow file:cat /etc/shadow
+Checking contents of tmp:ls -la -R /tmp
 Getting SUID bit files:find / -type f -perm -04000 -ls 2>/dev/null
 Getting SGID bit files:find / -perm -02000 -ls 2>/dev/null
 Find world readable files in /home:find /home/ -perm -4 -type f -exec ls -al {} \; 2>/dev/null
