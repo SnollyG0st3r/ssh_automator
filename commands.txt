@@ -2,21 +2,23 @@ Getting Version:uname -a
 Enumerating current user:whoami
 Getting my shell:echo $SHELL
 Getting my environment variables:env
+Checking mounts:df -h
+Checking our user's sudo rights: sudo -l
 Trying to get access to the passwd file:cat /etc/passwd
 Trying to get access to the shadow file:cat /etc/shadow
 Getting SUID bit files:find / -type f -perm -04000 -ls 2>/dev/null
 Getting SGID bit files:find / -perm -02000 -ls 2>/dev/null
 Find world readable files in /home:find /home/ -perm -4 -type f -exec ls -al {} \; 2>/dev/null
 Find world writable files:find / -perm -2 -type f -print | grep -v proc 2>/dev/null
-Find password strings in files within /var/www:grep -i -R 'password' /var/www/
+Find files writable by my user:find / -writable 2>/dev/null
 Output all bash history files:grep -R . /home/*/.bash_history
 Show all established TCP and UDP sessions:netstat -tuan | grep -i established
-Finding Cron jobs with weak permissions:ls -la /etc/cron*
+Check permissions on backup files:ls -laht /var/backups
+Checking Cron job permissions:ls -la /etc/cron*
 Checking Crontab:cat /etc/crontab
-Checking for interesting files:find / -type f -size +0 -iname "*.cfg" -o -iname "*.rtf" -o -iname "*.vpn" -o -iname "*.ovpn" -o -iname "*.pcf" -o -iname "*.config" -o -iname "*.txt" -o -iname "*.c" -o -iname "*.pl" -o -iname "*.gz" -o -iname "*.bz2" -o -iname "*.7z" -o -iname "*.log" -o -iname "*.tar" -o -iname "*.tgz" -o -iname "*.sql" -o -iname "*.properties" -o -iname "*.xml" -o -iname "*.rb" -o -iname "*.py" -o -iname "*.sh" -ls 2> /dev/null
-Finding passwords and private keys:find / -type f -size +0 -regex ".*\(shadow\|password\|passwd\|authorized_keys\|identity\|id_dsa\|id_rsa\|ssh\|rhosts\|htaccess\|htdigest\|svn.simple\).*" -ls 2>/dev/null
-Checking our user's sudo rights: sudo -l
 Checking bash version:bash --version
 Checking fstab for passwords:cat /etc/fstab
 Finding hidden files and folders:find / -name ".*" -ls 2>/dev/null
-Check permissions on backup files:ls -laht /var/backups
+Checking for interesting files:find / -type f -size +0 -iname "*.cfg" -o -iname "*.rtf" -o -iname "*.vpn" -o -iname "*.ovpn" -o -iname "*.pcf" -o -iname "*.config" -o -iname "*.txt" -o -iname "*.c" -o -iname "*.pl" -o -iname "*.gz" -o -iname "*.bz2" -o -iname "*.7z" -o -iname "*.log" -o -iname "*.tar" -o -iname "*.tgz" -o -iname "*.sql" -o -iname "*.properties" -o -iname "*.xml" -o -iname "*.rb" -o -iname "*.py" -o -iname "*.sh" -ls 2> /dev/null
+Finding passwords and private keys:find / -type f -size +0 -regex ".*\(shadow\|password\|passwd\|authorized_keys\|identity\|id_dsa\|id_rsa\|ssh\|rhosts\|htaccess\|htdigest\|svn.simple\).*" -ls 2>/dev/null
+Find password strings in files within /var/www:grep -i -R 'password' /var/www/
